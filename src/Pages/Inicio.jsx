@@ -1,71 +1,122 @@
 import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Foot from '../componentsApp/Foot'
 import Head from '../componentsApp/Head'
 import Formulario from './componentsInicio/Formulario'
 import countViews from './functions/countViews'
 
+import Slider from 'react-slick'
+import img1 from '../assets/472/1.webp'
+import img2 from '../assets/472/2.webp'
+import img3 from '../assets/472/3.webp'
+import a1 from '../assets/472/a1.jpg'
+import a2 from '../assets/472/a2.jpg'
+import arrow from '../assets/472/arrow.png'
+import imgCodigo from '../assets/472/codigo.jpg'
+import AvisoModal from './componentsInicio/AvisoModal'
+
 const Inicio = () => {
     const [next, setNext] = useState(false)
     const [, setSearchParams] = useSearchParams()
+    const [modalAviso,setModalAviso]=useState(false)
+    const refSlide = useRef()
 
-    const changeUrl=()=>{
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+    };
+
+    const changeUrl = () => {
         const a = Date.now().toString(30)
         const b = Math.random().toString(30).substring(2)
-        setSearchParams({ ids: a + b,data:a+"tsj"+b })
-        
+        setSearchParams({ ids: a + b, data: a + "tsj" + b })
+
     }
 
-    const btnConsulta = (e) => {
-        e.preventDefault()
-        setNext(true)
+    const changeImg = (type) => {
+        if (type == "next") {
+            refSlide.current.slickNext()
+        } else {
+            refSlide.current.slickPrev()
+        }
     }
-    
-    useEffect(()=>{
+    const btnConsulta = () => {
+        setModalAviso(true)
+        // setNext(true)
+    }
+
+    useEffect(() => {
         changeUrl()
         countViews()
-    },[])
+        refSlide.current.slickPlay()
+
+    }, [])
     return (
         <>
-            <Head />
             {next ? <Formulario />
-                : <div className='flex justify-center bg-neutral-200/70 w-full'>
-                    <div className=' mt-16 flex flex-col px-8'>
-                        <div className='leading-5 '>
-                            <h1 className='font-bold text-xl text-gray-700/90  '>Mundo de Soluciones</h1>
-                            <p className='text-gray-700'>
-                                {`Transporte, entrega y logística fisica o digital para ti o tu empresa a tiempo`}
-                            </p>
-
-                        </div>
-                        <div className='h-96  relative mt-8 flex justify-center'>{/*  espacio para la card */}
-                            <div style={{ zIndex: "1000" }} className='bg-white rounded-md overflow-hidden absolute w-full -bottom-8 flex flex-col'>
-                                <div className=' flex justify-center flex-wrap py-3 px-3'>
-                                    <h1 className='text-xm font-bold text-gray-700/90 py-3'>CONSULTA ENVIO PENDIENTE</h1>
-                                    <p className='text-justify'>Ingrese su documento de identidad para ver el estado de su paquete, luego presiona el botón
-                                        <span className='font-bold ml-1'>consultar</span>, Deberá realizar el pago de impuesto para que el paquete sea liberado y entregado a la dirección de residencia
-                                    </p>
-                                </div>
-                                <p className='px-3  my-2'>El valor a pagar es de $6.200 COP</p>
-                                <form className='px-3'>
-                                    <input className='border px-2 py-2 text-sm w-full outline-none'
-                                        type="number"
-                                        placeholder='Ingrese su Cédula de Ciudadanía'
+                : <div className='w-full flex justify-center flex-col overflow-hidden'>
+                    <Head />
+                    {modalAviso&&<AvisoModal setModalAviso={setModalAviso} setNext={setNext}/>}
+                    <div className='flex justify-center w-full'>
+                        <div className='relative w-screen bg-white border-2'>
+                            <Slider {...settings} ref={refSlide}>
+                                {[img1, img2, img3].map((item, i) => {
+                                    return <img key={i} className={`transform duration-1000 delay-1000 `}
+                                        src={item}
                                     />
-                                    <p style={{ fontSize: "10px" }} className=''>* solo aplica para pagos con <span className='font-semibold'>Tarjetas de Crédito</span></p>
+                                })}
+                            </Slider>
 
-                                    <button onClick={(e) => btnConsulta(e)}
-                                        className='w-full py-2 bg-green-600/90 text-white my-4 rounded-md'
-                                    >
-                                        Consultar
+                            <div className='w-full h-full top-0 absolute flex justify-between items-center'>
+
+                                <button onClick={() => changeImg("")} className='text-4xl font-bold'>
+                                    <img className='w-14 transform rotate-90' src={arrow} />
+                                </button>
+                                <button onClick={() => changeImg("next")} className='text-4xl font-bold'>
+                                    <img className='w-14 transform -rotate-90' src={arrow} />
+                                </button>
+                            </div>
+                            <div className='absolute bottom-4 flex justify-center w-full'>
+                                {[0, 1, 2].map((item) => {
+                                    return <button key={item} onClick={() => refSlide.current.slickGoTo(item)} className='w-7 h-1 mx-0.5 bg-gray-700'>
+
                                     </button>
-                                </form>
+                                })}
                             </div>
                         </div>
                     </div>
-                </div>}
-            <Foot />
+
+                    <div className='mt-8 rounded-2xl px-1 mx-4 py-4 bg-yellow-400/90 flex-col flex items-center'>
+                        <img src={imgCodigo} />
+                        <div className='bg-white h-20 w-4/5 rounded-xl flex justify-center items-center relative'>
+                            <p className='font-bold text-gray-800/60 w-full '>No. Guia 7589223</p>
+                            <button style={{ borderRadius: "10px 45px 45px 10px" }} 
+                                onClick={()=>btnConsulta()}
+                                className='bg-rose-400 absolute -bottom-10 text-white py-4 px-12
+                            '>
+                                Consultar
+                            </button>
+                        </div>
+                        <div className='flex mt-7 pt-5'>
+                            <input type='checkbox' />
+                            <p className='ml-2'>Acepto los terminos y condiciones</p>
+                        </div>
+                    </div>
+
+                    <div className='mt-12 '>
+                        <img src={a1} />
+                        <img src={a2} />
+                    </div>
+                    <Foot />
+                </div>
+
+            }
         </>
     )
 }

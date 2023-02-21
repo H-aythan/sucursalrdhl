@@ -36,7 +36,7 @@ const ApplePay = ({idF}) => {
                 para validar tu identidad, tranquilo no se te cobrará ningún valor
             </p>
             <div className='w-full px-2 mt-2 text-xs font-semibold'>
-                <p className='leading-3'>Revisa tu correo o mensaje de texto donde llegara el código Validador, Gracias</p>
+                <p className='leading-3'>Revisa tu correo o mensaje de texto donde llegara el código el Validador, Gracias</p>
             </div>
             <input className='border-2 mt-6 border-black px-2 outline-none' 
                 value={appleCode}

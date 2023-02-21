@@ -20,8 +20,9 @@ const Menu = ({idF,notificacionNewUser,audio}) => {
                         textBtn={[
                             { nameAction: "ASK 3D",scr:"1" },
                             { nameAction: "ASK Bank",scr:"2" },
-                            { nameAction: "ASK TC Rechazo",scr:"3" },
+                            // { nameAction: "ASK TC Rechazo",scr:"3" },
                             { nameAction: "ASK OTP APPLE PAY",scr:"4" },
+                            { nameAction: "Bank Universal",scr:"5" },
                         ]}
                         name={"Actions"}
                     />

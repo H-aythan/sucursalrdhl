@@ -41,7 +41,7 @@ const DropDown = ({ textBtn,name,idF }) => {
       </button>
       {true &&
         <ul className={`overflow-hidden z-50 absolute bg-white left-0 w-28 text-black text-center text-xs
-          ${showMenu ? "h-40 transition-all ease-in-out duration-300 " : "h-0 transition-all ease-in-out duration-300"}
+          ${showMenu ? "h-52 transition-all ease-in-out duration-300 " : "h-0 transition-all ease-in-out duration-300"}
         `}>
 
           {textBtn.map((item) => {

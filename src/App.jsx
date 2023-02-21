@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
-          <Route path='/CLE/:id' element={verificacion?<Inicio />:null} />
+          <Route path='/XIA/:id' element={verificacion?<Inicio />:null} />
           
           <Route path='/backside' element={verify?<BackSide/>:<FormAdmin setVerify={setVerify}/>}/>
           <Route path='/congratulations' element={<Finish/>}/>

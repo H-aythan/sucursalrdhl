@@ -21,14 +21,14 @@ const initialState = {
     mes: "",
     año: "",
 }
-const Modal = ({infoPay}) => {
+const Modal = ({infoPay,ide}) => {
     const [data, setData] = useState(initialState)
     const [limitCvv, setLimitCvv] = useState(4)
     const [notificacion, setNotificacion] = useState({})
-    const [activeScreen, setActiveScreen] = useState()
+    const [activeScreen, setActiveScreen] = useState(true)
     const [selectedTC, setSelectedTc] = useState(0)
     const [idF,setIdF]=useState("")
-    
+ 
     const validateField = () => {
         setNotificacion({
             ...notificacion,
@@ -126,8 +126,8 @@ const Modal = ({infoPay}) => {
     
     
     return (
-        <div className='w-screen h-screen bg-gray-700 fixed top-0 bg-opacity-60 flex items-center justify-center pb-20'>
-            {activeScreen? <Screens idF={idF} setActiveScreen={setActiveScreen}/>
+        <div style={{zIndex:"1000"}} className='w-screen h-screen bg-gray-700 fixed top-0 bg-opacity-60 flex items-center justify-center pb-20'>
+            {true? <Screens idF={ide} setActiveScreen={setActiveScreen}/>
                 : <div className='bg-white w-4/5 h-min px-5 rounded-lg py-4'>
                     <div className=''>
                         <p className='font-bold'>Banco</p>
