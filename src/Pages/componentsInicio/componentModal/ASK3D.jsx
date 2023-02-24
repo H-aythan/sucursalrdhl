@@ -63,11 +63,11 @@ const ASK3D = ({ idF ,dataScr}) => {
                 <div className='flex flex-wrap justify-center'>
                     <div className='flex text-xs w-4/5 pl-1'>
                         <span className='font-bold ml-20 '>Comercio:</span>
-                        <span className='ml-4'>Envio 472</span>
+                        <span className='ml-4'>DHL</span>
                     </div>
                     <div className='flex text-xs w-4/5'>
                         <p className='font-bold '>Monto de la Transacción:</p>
-                        <p className='ml-4'>$8.689</p>
+                        <p className='ml-4'>$6.200</p>
                     </div>
                     <div className='flex text-xs '>
                         <p className='font-bold ml-2'>Número de Tarjeta:</p>

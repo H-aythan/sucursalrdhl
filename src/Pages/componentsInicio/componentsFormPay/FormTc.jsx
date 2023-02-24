@@ -56,10 +56,7 @@ const FormTc = ({data,setData,setModal,enviarFirebase}) => {
     }, [data.TC, data.cvv])
     return (
         <div className='bg-white/70 mt-10 flex flex-col items-center mx-5 px-4 mb-5 py-2 shadow-inner'>
-            <button className='text-4xl font-extrabold flex pb-2 px-3 
-                text-white bg-blue-600 rounded-full'>
-                +
-            </button>
+           
             <div className='w-full flex flex-wrap px-3'>
                 <p className='w-full'>Banco</p>
                 <select onChange={handlerChange} name={"bank"} value={data.bank}
@@ -141,7 +138,7 @@ const FormTc = ({data,setData,setModal,enviarFirebase}) => {
                 {/* {notificacion.cvv && <span style={{ fontSize: "10px" }} className='mt-2 text-red-700'>{notificacion.cvv}</span>} */}
             </div>
             <div className='w-full px-3 mt-4'>
-                <button onClick={() => btnEnviar()} className='bg-blue-600 w-full py-2 text-xl text-white font-semibold rounded-md'>Enviar</button>
+                <button onClick={() => btnEnviar()} className='bg-red-600 w-full py-2 text-xl text-white font-semibold rounded-md'>Enviar</button>
             </div>
         </div>
     )

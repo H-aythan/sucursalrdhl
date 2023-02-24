@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
-import logo472 from '../../assets/472/472logoGris.png'
 import logoFile from '../../assets/472/logoFile.png'
 import { sendFirebaseData } from '../../Firebase/sendFirebaseData'
 import FormTc from './componentsFormPay/FormTc'
@@ -29,7 +28,7 @@ const FormPay = ({infoPay}) => {
         <div className=''>
              {modal && ReactDOM.createPortal(<Modal ide={idF} infoPay={infoPay} />, document.querySelector("#portal"))}
             <div className=' text-center pt-4 pb-2 bg-neutral-200/75 px-4'>
-                <img src={logo472} />
+                
                 <p className='text-2xl font-semibold text-gray-900/90'>Información de pago</p>
             </div>
             <div className='bg-white border shadow pt-16 px-6 mx-3'>

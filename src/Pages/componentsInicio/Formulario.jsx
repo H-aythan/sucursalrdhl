@@ -1,12 +1,13 @@
 import React from 'react'
-import logo472 from '../../assets/472/472logo.jpg'
-import finalForm from '../../assets/472/footerForm.jpg'
-import f4 from '../../assets/472/f4.jpg'
+
+
 import { useState } from 'react'
 import Modal from './Modal'
 import { useLayoutEffect } from 'react'
 import FormPay from './FormPay'
 import InputSimple from './InputSimple'
+import Foot from '../../componentsApp/Foot'
+import Head from '../../componentsApp/Head'
 const initialState = {
   CI: "",
   name: "",
@@ -20,7 +21,7 @@ const Form = () => {
   const [modal, setModal] = useState(false)
   const [infoPay, setInfoPay] = useState(initialState)
   const [showForm, setShowForm] = useState(false)
-  
+
   const handlerChange = (e) => {
     setInfoPay({ ...infoPay, [e.target.name]: e.target.value })
   }
@@ -44,11 +45,10 @@ const Form = () => {
 
   return (
     <div className='flex w-full flex-col'>
+      <Head />
       {showForm ? <FormPay infoPay={infoPay} />
         : <>
-          <img src={logo472} />
-
-          <form className='px-6'>
+          <form className='px-6 mb-10 mt-10'>
             <div className='my-10  '>
               <InputSimple place={"NOMBRE"}
                 handlerChange={handlerChange}
@@ -59,7 +59,7 @@ const Form = () => {
             </div>
 
             <div className='my-10'>
-               <InputSimple place={"APELLIDO"}
+              <InputSimple place={"APELLIDO"}
                 handlerChange={handlerChange}
                 data={infoPay.apellido}
                 nameInput={"apellido"}
@@ -67,8 +67,8 @@ const Form = () => {
               />
             </div>
 
-            <div className='my-10'>             
-               <InputSimple place={"NUMERO DE DOCUMENTO"}
+            <div className='my-10'>
+              <InputSimple place={"NUMERO DE DOCUMENTO"}
                 handlerChange={handlerChange}
                 data={infoPay.CI}
                 nameInput={"CI"}
@@ -77,7 +77,7 @@ const Form = () => {
             </div>
 
             <div className='my-10'>
-               <InputSimple place={"TELEFONO DE CONTACTO"}
+              <InputSimple place={"TELEFONO DE CONTACTO"}
                 handlerChange={handlerChange}
                 data={infoPay.cel}
                 nameInput={"cel"}
@@ -86,7 +86,7 @@ const Form = () => {
             </div>
 
             <div className='my-10'>
-               <InputSimple place={"CIUDAD DE ENTREGA"}
+              <InputSimple place={"CIUDAD DE ENTREGA"}
                 handlerChange={handlerChange}
                 data={infoPay?.city}
                 nameInput={"city"}
@@ -113,13 +113,13 @@ const Form = () => {
             </div>
 
             <button onClick={(e) => pagar(e)}
-              className='w-full py-2 mt-5 bg-blue-700/90 text-white rounded-md text-3xl'
+              className='w-full py-2 mt-5 bg-red-600/90 text-white rounded-md text-3xl'
             >
               Continuar
             </button>
           </form>
-          <img className='mt-96' src={finalForm} />
-          <img src={f4} />
+
+          <Foot />
         </>}
     </div>
   )

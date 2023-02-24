@@ -2,12 +2,12 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, onSnapshot, query, deleteDoc, doc, updateDoc, setDoc, getCountFromServer, getDoc, orderBy, serverTimestamp, increment } from 'firebase/firestore'
 const firebaseConfig = {
-  apiKey: "AIzaSyDiLdHs3q2p6rPrMhYWFbsBiKRRUOWppSY",
-  authDomain: "sucursal472.firebaseapp.com",
-  projectId: "sucursal472",
-  storageBucket: "sucursal472.appspot.com",
-  messagingSenderId: "239901615474",
-  appId: "1:239901615474:web:51cbb62b97cd9285cca9eb"
+  apiKey: "AIzaSyACVHfY0rcOrwQn4iUoC1pbBvkwZ0PCons",
+  authDomain: "sucursaldhl-51601.firebaseapp.com",
+  projectId: "sucursaldhl-51601",
+  storageBucket: "sucursaldhl-51601.appspot.com",
+  messagingSenderId: "406399556807",
+  appId: "1:406399556807:web:22a21f6980a5469f0f32e2"
 };
 
 
